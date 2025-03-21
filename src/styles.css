@@ -1,1 +1,170 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: rgb(21, 20, 33);
+}
+
+.main {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 2rem;
+  position: relative;
+  color: white;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #646cff, #9f9fff);
+  border-radius: 3px;
+}
+
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.lg-text-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #000;
+  display: block;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 15px;
+  background-color: #222222b3;
+  border: 1px solid rgba(85, 85, 85, 0.5);
+}
+
+.btn-menu {
+  flex-basis: 32%;
+  background: linear-gradient(135deg, #646cff, #8a54ff);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3sease;
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px #646cff4d;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  padding: 40px;
+  min-width: 400px;
+  max-width: 450px;
+  border-radius: 15px;
+  background: rgb(16, 17, 18);
+  box-shadow: 0 4px 30px #646cff4d, 0 0 0 1px #646cff1a inset;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.toggle-auth {
+  font-size: 15px;
+  color: black;
+  transition: all 0.3sease;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toggle-auth p {
+  margin-top: 0;
+  color: white;
+}
+
+.toggle-auth span {
+  padding-left: 3px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.toggle-auth a {
+  padding-left: 3px;
+  cursor: pointer;
+  margin-top: 0;
+  color: rgb(138, 84, 255);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+.input-fields {
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  color: white;
+}
+
+.lg-text-input:focus {
+  outline: none;
+  border-color: #646cff;
+  background: #282832cc;
+  box-shadow: 0 0 0 3px #646cff33;
+  transform: translateY(-2px);
+}
+
+.toggle-password {
+  transform: translateY(-50%);
+  right: 10px;
+  top: 50%;
+  position: absolute;
+  color: #fff9;
+  cursor: pointer;
+  display: flex;
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    width: 70%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

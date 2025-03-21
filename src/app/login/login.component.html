@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="container">
+        <h2>Welcome Back</h2>
+
+        <form [formGroup]="form">
+            <div class="input-fields">
+                <input id="email" type="email" placeholder="Email Address" class="lg-text-input"
+                    formControlName="email" />
+            </div>
+
+            <div class="input-fields">
+                <input id="password" type="password" placeholder="Password" class="lg-text-input"
+                    formControlName="password" />
+            </div>
+
+            <div class="btn-wrapper">
+                <button type="submit" class="btn-menu">Log In</button>
+            </div>
+
+            <div class="toggle-auth">
+                <P>Don't have an account?</P>
+                <a [routerLink]="['/Register']">Sign up</a>
+            </div>
+
+            <div class="toggle-auth">
+                <P>Forgot your password?</P>
+                <a>Reset it here</a>
+            </div>
+        </form>
+
+    </div>
+</div>

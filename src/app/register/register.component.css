@@ -1,0 +1,25 @@
+.password-strength {
+  margin-top: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.strength-text {
+  font-size: 12px;
+  color: #ffffffb3;
+}
+
+.strength-meter {
+  height: 5px;
+  background-color: #ffffff1a;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+span {
+  font-weight: 700;
+  color: #646cff;
+  text-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}

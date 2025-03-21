@@ -1,0 +1,15 @@
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #646cff, #9f9fff);
+  border-radius: 3px;
+}
