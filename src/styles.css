@@ -96,10 +96,11 @@ ul li {
 .toggle-auth {
   font-size: 15px;
   color: black;
-  transition: all 0.3sease;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .toggle-auth p {
