@@ -45,10 +45,16 @@
                 <a [routerLink]="['/']">Log in</a>
             </div>
 
-            @if(this.errorMessage) {
+            @if(this.errorMessage && this.confirmPasswordHasInput) {
             <div class="auth-message-error">
                 <span class="error-icon"></span>
                 <p>{{ this.errorMessage}}</p>
+            </div>
+            }
+            @if(this.sentEmailForVerification){
+            <div class="auth-message-error">
+                <span class="success-icon"></span>
+                <p>Check your email for verification.</p>
             </div>
             }
         </form>

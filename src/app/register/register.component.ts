@@ -25,22 +25,15 @@ export class RegisterComponent implements OnInit {
     confirmPassword: ['', Validators.required],
   });
 
-  passwordSubscription!: Subscription; // Potentially add password strength indictator. Create subscription so that I can easily unsubscribe in NgDestroy
   passwordsMatchSubscription!: Subscription;
-  passwordStrength: number = 0;
   showPassword: Boolean = false;
   showConfirmPassword: Boolean = false;
   errorMessage!: string;
   passwordsMatch!: boolean;
   confirmPasswordHasInput: boolean = false;
+  sentEmailForVerification!: boolean;
 
   ngOnInit(): void {
-    // Potentially add password strength indictator
-    this.passwordSubscription =
-      this.form.controls.password.valueChanges.subscribe((password) => {
-        this.passwordStrength = this.validatePassword(password.trim());
-      });
-
     // Check passwords match
     this.passwordsMatchSubscription =
       this.form.controls.confirmPassword.valueChanges.subscribe(() => {
@@ -49,6 +42,7 @@ export class RegisterComponent implements OnInit {
   }
 
   passwordCheckPasswordsMatch() {
+    this.errorMessage = '';
     const password = this.form.get('password')?.value;
     const confirmPassword = this.form.get('confirmPassword')?.value;
     this.confirmPasswordHasInput = !!confirmPassword;
@@ -69,7 +63,6 @@ export class RegisterComponent implements OnInit {
 
   // Destroy all subscriptions when changing routes
   ngOnDestroy(): void {
-    this.passwordSubscription.unsubscribe();
     this.passwordsMatchSubscription.unsubscribe();
   }
 
@@ -81,7 +74,7 @@ export class RegisterComponent implements OnInit {
         if (result.error) {
           this.errorMessage = result.error.message;
         } else {
-          this.router.navigateByUrl('/Home');
+          this.sentEmailForVerification = true;
         }
       });
   }
