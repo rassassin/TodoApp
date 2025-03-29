@@ -15,11 +15,25 @@ export class LoginComponent {
   fb = inject(FormBuilder);
   http = inject(HttpClient);
   router = inject(Router);
-  // authService = inject(AuthService);
+  authService = inject(AuthService);
 
   form = this.fb.nonNullable.group({
     username: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
+  errorMessage: any;
+
+  onSubmit(): void {
+    const rawForm = this.form.getRawValue();
+    this.authService
+      .login(rawForm.email, rawForm.password)
+      .subscribe((result) => {
+        if (result.data.user?.role === 'authenticated') {
+          this.router.navigate(['/Home']);
+        } else {
+          this.errorMessage = result.error?.message;
+        }
+      });
+  }
 }
