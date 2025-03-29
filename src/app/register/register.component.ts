@@ -49,18 +49,6 @@ export class RegisterComponent implements OnInit {
     return confirmPassword?.trim() === password?.trim();
   }
 
-  // Potentially add password strength indictator
-  validatePassword(password: string): number {
-    let strength = 0;
-    if (password.length >= 8) strength++;
-    if (/[A-Za-z]/.test(password)) strength++;
-    if (/\d/.test(password)) strength++;
-    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) strength++;
-    if (/[A-Z]/.test(password)) strength++;
-    if (/[a-z]/.test(password)) strength++;
-    return strength;
-  }
-
   // Destroy all subscriptions when changing routes
   ngOnDestroy(): void {
     this.passwordsMatchSubscription.unsubscribe();
