@@ -22,7 +22,9 @@ export class LoginComponent {
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
+
   errorMessage: any;
+  showPassword: Boolean = false;
 
   onSubmit(): void {
     const rawForm = this.form.getRawValue();

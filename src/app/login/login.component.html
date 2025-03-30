@@ -9,8 +9,11 @@
             </div>
 
             <div class="input-fields">
-                <input id="password" type="password" placeholder="Password" class="lg-text-input"
-                    formControlName="password" />
+                <input id="password" [type]="showPassword ? 'text' : 'password'" placeholder="Password"
+                    class="lg-text-input" formControlName="password" />
+                <a class="toggle-password" (click)="showPassword = !showPassword">
+                    <div [class]="showPassword ? 'eye-off-icon' : 'eye-icon'"></div>
+                </a>
             </div>
 
             <div class="btn-wrapper">
