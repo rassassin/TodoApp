@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
   authService = inject(AuthService);
 
   form = this.fb.nonNullable.group({
-    username: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],

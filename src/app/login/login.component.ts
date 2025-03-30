@@ -18,7 +18,6 @@ export class LoginComponent {
   authService = inject(AuthService);
 
   form = this.fb.nonNullable.group({
-    username: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
