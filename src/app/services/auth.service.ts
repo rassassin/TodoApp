@@ -3,9 +3,10 @@ import {
   AuthResponse,
   createClient,
   SupabaseClient,
+  UserResponse,
 } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment.development';
-import { from, Observable } from 'rxjs';
+import { from, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,12 @@ export class AuthService {
       password,
     });
     return from(promise);
+  }
+
+  getCurrentUserId(): Observable<string | null> {
+    const promise = this.supabase.auth.getUser();
+    return from(promise).pipe(
+      map((response: UserResponse) => response.data.user?.id ?? null)
+    );
   }
 }

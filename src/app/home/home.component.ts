@@ -24,8 +24,6 @@ export class HomeComponent {
         this.todoService.getTodos(userId).subscribe((todos) => {
           this.todos = todos;
         });
-      } else {
-        this.router.navigate(['/']);
       }
     });
   }
